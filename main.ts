@@ -3,10 +3,12 @@ process.umask(0o022);
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-// First draft of the line. It has the burnt-toast complaint in it, but the
-// wording is still a bit plain, so it will probably get tightened up.
+// Second pass: gave it a proper error code like a real appliance would,
+// and put the blame where it belongs, on the dial setting. Kept the pale
+// side and the charcoal side, since that is how toast actually goes wrong
+// in my kitchen anyway.
 const LINE =
-  "Error: your toast came out burnt on one side and raw on the other, please stop blaming me.";
+  "Error 07: one side is pale, the other is basically charcoal, and somehow that's my fault for following your dial.";
 
 function main(): void {
   if (LINE.length < 1 || LINE.length > 120 || LINE.trim().length === 0) {
